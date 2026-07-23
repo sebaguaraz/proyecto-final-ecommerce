@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Productos</h1>
+    {{#if products.length}}
+    {{#each products}}
+    <article class="product-card {{#unless status}}product-disabled{{/unless}}">
+        <header class="product-image-container">
+            {{#if thumbnails.[0]}}
+            <img src="{{thumbnails.[0]}}" alt="{{title}}" class="product-img">
+            {{else}}
+            <p>Sin imagen</p>
+            {{/if}}
+            {{#unless status}}
+            <span class="badge-out">Agotado</span>
+            {{/unless}}
+        </header>
+        <main class="product-body">
+            <span class="product-category">{{category}}</span>
+            <h2 class="product-title">{{title}}</h2>
+            <p class="product-description">{{description}}</p>
+            <p>Codigo: {{code}}</p>
+            <p>Stock: {{stock}}</p>
+            <p>Precio: ${{price}}</p>
+            <a href="/products/{{_id}}">Ver detalle</a>
+        </main>
+    </article>
+    {{/each}}
+    <footer class="pagination">
+        {{#if hasPrevPage}}
+        <a href="/products?page={{prevPage}}">Pagina anterior</a>
+        {{/if}}
+        <span>Pagina {{page}} de {{totalPages}}</span>
+        {{#if hasNextPage}}
+        <a href="/products?page={{nextPage}}">Pagina siguiente</a>
+        {{/if}}
+    </footer>
+    {{else}}
+    <p>No hay productos disponibles.</p>
+    {{/if}}
+</body>
+<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+<script>
+    const socket = io()
+    socket.on("productsUpdated", function () {
+        window.location.reload()
+    })
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <h1>Carrito</h1>
+
+    {{#if products.length}}
+
+    {{#each products}}
+    <div class="cart-product">
+        <h2>{{author.title}}</h2>
+
+        {{#if author.thumbnails.[0]}}
+        <img src="{{author.thumbnails.[0]}}" alt="{{author.title}}" class="product-img">
+        {{else}}
+        <p>Sin imagen</p>
+        {{/if}}
+
+        <p>Descripcion: {{author.description}}</p>
+        <p>Categoria: {{author.category}}</p>
+        <p>Codigo: {{author.code}}</p>
+        <p>Precio unitario: ${{author.price}}</p>
+        <p>Cantidad: {{amount}}</p>
+    </div>
+    {{/each}}
+
+    {{else}}
+
+    <p>El carrito esta vacio.</p>
+
+    {{/if}}
+
+    <a href="/products">Volver a productos</a>
+
+</body>
+
+</html>
