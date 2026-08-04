@@ -3,7 +3,7 @@ const path = require("path")
 
 class ProductManager {
     constructor() {
-        this.path = path.join(__dirname, "../../data/products.json")
+        this.path = path.join(__dirname, "products.json")
     }
     async getProducts() {
         const data = await fs.readFile(this.path, "utf-8")

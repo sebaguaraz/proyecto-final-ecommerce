@@ -1,6 +1,6 @@
 # Proyecto Final Ecommerce
 
-Proyecto final del curso de Programación Backend.
+Backend e-commerce construido con Node.js, Express y MongoDB.
 
 ## Descripción
 
@@ -44,6 +44,7 @@ git clone https://github.com/sebaguaraz/proyecto-final-ecommerce.git
 Instalar las dependencias:
 
 ```bash
+cd proyecto-final-ecommerce
 npm install
 ```
 
@@ -98,16 +99,35 @@ DELETE /api/carts/:cid
 /carts/:cid
 ```
 
+## Ejemplo de uso
+- Listar productos paginados
+GET /products?page=1
+- Filtrar por categoría
+GET /api/products?query=Electrónica
+- Ordenar por precio descendente
+GET /api/products?sort=desc
+
+## Estructura del Proyecto
+
+```text
+├── config.js          # Configuración de conexión a MongoDB
+├── controllers/       # Lógica de controladores HTTP
+├── dao/               # Acceso a datos con Mongoose
+├── models/            # Esquemas de MongoDB
+├── public/            # Archivos estáticos 
+├── routes/            # Definición de rutas del servidor
+├── services/          # Reglas de negocio y orquestación
+└── views/             # Plantillas Handlebars
+```
+
 ## Persistencia
 
 La versión final utiliza MongoDB mediante Mongoose.
 
 También se conserva una implementación anterior basada en FileSystem dentro de:
 
-```text
-dao/fileSystem/
-data/
-```
+- El proyecto utiliza Mongoose para la persistencia en MongoDB.
+- También incluye una implementación previa con FileSystem en la Carpeta "aprendizaje", que se conserva como referencia.
 
 ## Autor
 

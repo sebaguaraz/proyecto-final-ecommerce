@@ -3,7 +3,7 @@ const path = require("path")
 
 class CartManager {
     constructor() {
-        this.path = path.join(__dirname, "../../data/carts.json")
+        this.path = path.join(__dirname, "carts.json")
     }
     async getCarts() {
         const data = await fs.readFile(this.path, "utf-8")
