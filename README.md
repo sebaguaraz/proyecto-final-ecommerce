@@ -124,10 +124,7 @@ GET /api/products?sort=desc
 
 La versión final utiliza MongoDB mediante Mongoose.
 
-También se conserva una implementación anterior basada en FileSystem dentro de:
-
-- El proyecto utiliza Mongoose para la persistencia en MongoDB.
-- También incluye una implementación previa con FileSystem en la Carpeta "aprendizaje", que se conserva como referencia.
+También incluye una implementación previa con FileSystem en la Carpeta "aprendizaje", que se conserva como referencia.
 
 ## Autor
 
